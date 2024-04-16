@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song List</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>List of Songs</h1>
+    <ul id="song-list">
+    </ul>
+
+    <script>
+        // Fetch songs from API
+        const axios = require('axios');
+
+const options = {
+  method: 'GET',
+  url: 'https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/',
+  params: {id: '2396871'},
+  headers: {
+    'X-RapidAPI-Key': '04b355ad0bmsh2a2fcf705362ff8p19c6acjsn57e7b79df01f',
+    'X-RapidAPI-Host': 'genius-song-lyrics1.p.rapidapi.com'
+  }
+};
+
+try {
+	const response = await axios.request(options);
+	console.log(response.data);
+} catch (error) {
+	console.error(error);
+}
+    </script>
+</body>
+</html>
